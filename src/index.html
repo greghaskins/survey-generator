@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="surveyGenerator">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Survey Generator</title>
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+  </head>
+  <body ng-controller="SurveyController as surveyCtrl" ng-cloak>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Survey Generator</a>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <button type="button" class="btn btn-danger navbar-btn navbar-right">Reset Survey</button>
+          <button type="button" class="btn btn-success navbar-btn" ng-click="surveyCtrl.toggleJson()">Toggle JSON</button>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Survey</h1>
+      </div>
+
+      <survey ng-if="!surveyCtrl.outputJson" survey="surveyCtrl.survey"></survey>
+      <survey-json ng-if="surveyCtrl.outputJson" survey="surveyCtrl.survey"></survey-json>
+    </div>
+
+    <script src="vendor/js/angular.min.js"></script>
+    <script src="vendor/js/angular-animate.min.js"></script>
+    <script src="vendor/js/ui-bootstrap-tpls.min.js"></script>
+    <script src="vendor/js/angular-clipboard.js"></script>
+    <script src="js/app.min.js"></script>
+  </body>
+</html>
