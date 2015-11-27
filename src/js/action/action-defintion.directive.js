@@ -6,7 +6,9 @@
       return {
         restrict: 'E',
         scope: {
-          action: '='
+          action: '=',
+          stepIndex: '@',
+          actionIndex: '@'
         },
         link: function(scope, element) {
           element.on('click', function(event) {

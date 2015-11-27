@@ -7,7 +7,7 @@
         restrict: 'E',
         scope: {
           step: '=',
-          index: '@'
+          stepIndex: '@'
         },
         link: function(scope) {
           scope.step.id = scope.step.id || '';

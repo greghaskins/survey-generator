@@ -19,5 +19,5 @@
   </div>
 </div>
 
-<ask-question-data ng-if="action.type === 'AskQuestion'" action="action"></ask-question-data>
-<display-content-data ng-if="action.type === 'DisplayContent'" action="action"></display-content-data>
+<ask-question-data ng-if="action.type === 'AskQuestion'" action="action" step-index="{{stepIndex}}" action-index="{{actionIndex}}"></ask-question-data>
+<display-content-data ng-if="action.type === 'DisplayContent'" action="action" step-index="{{stepIndex}}" action-index="{{actionIndex}}"></display-content-data>
