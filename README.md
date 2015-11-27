@@ -1,6 +1,6 @@
 # Survey Generator
 
-A simple survey generator for a project I am working on.
+A simple survey generator for a project I'm working on.
 
 ## License
 
