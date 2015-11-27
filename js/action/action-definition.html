@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label for="action-type" class="col-sm-2 control-label">
+     Action Type
+  </label>
+
+  <div class="col-sm-10">
+    <div class="btn-group" uib-dropdown>
+      <button type="button" class="btn btn-primary">{{ selectedItemText }}</button>
+      <button type="button" class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu">
+        <li ng-repeat="availableAction in availableActions">
+          <a href="#" ng-click="select(availableAction)">{{ availableAction.text }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ask-question-data ng-if="action.type === 'AskQuestion'" action="action"></ask-question-data>
+<display-content-data ng-if="action.type === 'DisplayContent'" action="action"></display-content-data>
