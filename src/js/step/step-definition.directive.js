@@ -10,6 +10,7 @@
           index: '@'
         },
         link: function(scope) {
+          scope.step.id = scope.step.id || '';
           scope.step.actions = scope.step.actions || [];
           // scope.step.transitions = scope.step.transitions || [];
 

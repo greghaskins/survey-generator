@@ -9,12 +9,8 @@
           action: '='
         },
         link: function(scope) {
-          var html = '';
-          if (scope.action.hasOwnProperty('data') && scope.action.data.hasOwnProperty('html')) {
-            html = scope.action.data.html;
-          }
-
-          scope.action.data = { html: html };
+          scope.action.data = scope.action.data || {};
+          scope.action.data.html = scope.action.data.html || '';
         },
         templateUrl: 'js/action/display-content-data.html'
       };

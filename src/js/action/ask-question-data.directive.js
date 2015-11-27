@@ -1,6 +1,14 @@
 (function() {
   'use strict';
 
+  function syncRules(rules, actionRules) {
+    angular.forEach(rules, function(rule) {
+      if (actionRules.indexOf(rule.name) !== -1) {
+        rule.checked = true;
+      }
+    });
+  }
+
   angular.module('surveyGenerator')
     .directive('askQuestionData', function() {
       return {
@@ -9,31 +17,36 @@
           action: '='
         },
         link: function(scope) {
-          var text = '';
-          var resultColumn = '';
-          var rules = '';
+          scope.action.data = scope.action.data || {};
+          scope.action.data.text = scope.action.data.text || '';
+          scope.action.data.resultColumn = scope.action.data.resultColumn || '';
+          scope.action.data.rules = scope.action.data.rules || [];
 
-          if (!scope.action.hasOwnProperty('data')) {
-            scope.action.data = {};
-          }
+          scope.rules = [{
+            text: 'Is a whole number',
+            name: 'IsAWholeNumber',
+            checked: false
+          }, {
+            text: 'Required',
+            name: 'Required',
+            checked: false
+          }];
 
-          if (scope.action.data.hasOwnProperty('text')) {
-            text = scope.action.data.text;
-          }
+          syncRules(scope.rules, scope.action.data.rules);
 
-          if (scope.action.data.hasOwnProperty('resultColumn')) {
-            resultColumn = scope.action.data.resultColumn;
-          }
+          scope.$watch(function() {
+            return scope.rules.map(function(rule) {
+              return rule.checked;
+            });
+          }, function() {
+            scope.action.data.rules = [];
 
-          if (scope.action.data.hasOwnProperty('rules')) {
-            rules = scope.action.data.rules;
-          }
-
-          scope.action.data = {
-            text: text,
-            resultColumn: resultColumn,
-            rules: rules
-          };
+            angular.forEach(scope.rules, function(value) {
+              if (value.checked) {
+                scope.action.data.rules.push(value.name);
+              }
+            });
+          }, true);
         },
         templateUrl: 'js/action/ask-question-data.html'
       };
