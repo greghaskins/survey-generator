@@ -2,7 +2,7 @@
   <div ng-repeat="step in survey.steps">
     <div class="panel panel-default">
       <div class="panel-body">
-        <step-definition step="step" index="{{$index}}"></step-definition>
+        <step-definition step="step" step-index="{{$index}}"></step-definition>
       </div>
       <div class="panel-footer text-center">
         <button type="button" class="btn btn-danger" ng-click="deleteStep($index)">Delete Step</button>
