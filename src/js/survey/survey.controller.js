@@ -11,5 +11,12 @@
     this.toggleJson = function() {
       this.outputJson = !this.outputJson;
     };
+
+    this.reset = function(event) {
+      event.preventDefault();
+
+      this.survey = { steps: [] };
+      this.outputJson = false;
+    };
   }
 })();
