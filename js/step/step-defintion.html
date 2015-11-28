@@ -1,7 +1,7 @@
 <div class="form-group">
-  <label for="{{ 'step-id-' + stepIndex }}" class="col-sm-2 control-label">Step Name</label>
+  <label for="step-{{ $id }}" class="col-sm-2 control-label">Step Name</label>
   <div class="col-sm-10">
-    <input id="{{ 'step-id-' + stepIndex }}" type="text" class="form-control" placeholder="Step Name" ng-model="step.id">
+    <input id="step-{{ $id }}" type="text" class="form-control" placeholder="Step Name" ng-model="step.id">
   </div>
 </div>
 
@@ -12,7 +12,7 @@
     <div ng-repeat="action in step.actions">
       <div class="panel panel-default">
         <div class="panel-body">
-          <action-definition action="action" step-index="{{stepIndex}}" action-index="{{$index}}"></action-definition>
+          <action-definition action="action"></action-definition>
         </div>
         <div class="panel-footer text-center">
           <button type="button" class="btn btn-danger" ng-click="deleteAction($index)">Delete Action</button>
