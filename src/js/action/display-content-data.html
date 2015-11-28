@@ -1,7 +1,7 @@
 <div class="form-group">
-  <label for="{{ 'html-' + stepIndex + '-' + actionIndex }}" class="col-sm-2 control-label">HTML</label>
+  <label for="html-{{ $id }}" class="col-sm-2 control-label">HTML</label>
 
   <div class="col-sm-10">
-    <textarea id="{{ 'html-' + stepIndex + '-' + actionIndex }}" class="form-control" rows="3" placeholder="Enter HTML" ng-model="action.data.html"></textarea>
+    <textarea id="html-{{ $id }}" class="form-control" rows="3" placeholder="Enter HTML" ng-model="action.data.html"></textarea>
   </div>
 </div>

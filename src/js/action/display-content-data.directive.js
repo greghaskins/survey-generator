@@ -14,9 +14,7 @@
       return {
         restrict: 'E',
         scope: {
-          action: '=',
-          stepIndex: '@',
-          actionIndex: '@'
+          action: '='
         },
         link: function(scope) {
           resetData(scope);

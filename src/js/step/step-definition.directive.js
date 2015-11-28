@@ -6,8 +6,7 @@
       return {
         restrict: 'E',
         scope: {
-          step: '=',
-          stepIndex: '@'
+          step: '='
         },
         link: function(scope) {
           scope.step.id = scope.step.id || '';
