@@ -1,6 +1,14 @@
 (function() {
   'use strict';
 
+  function resetData(scope) {
+    var tempData = scope.action.data || {};
+
+    scope.action.data = {
+      html: tempData.html || ''
+    };
+  }
+
   angular.module('surveyGenerator')
     .directive('displayContentData', function() {
       return {
@@ -11,8 +19,7 @@
           actionIndex: '@'
         },
         link: function(scope) {
-          scope.action.data = scope.action.data || {};
-          scope.action.data.html = scope.action.data.html || '';
+          resetData(scope);
         },
         templateUrl: 'js/action/display-content-data.html'
       };

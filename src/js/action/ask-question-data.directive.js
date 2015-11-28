@@ -9,6 +9,16 @@
     });
   }
 
+  function resetData(scope) {
+    var tempData = scope.action.data || {};
+
+    scope.action.data = {
+      text: tempData.text || '',
+      resultColumn: tempData.resultColumn || '',
+      rules: tempData.rules || []
+    };
+  }
+
   angular.module('surveyGenerator')
     .directive('askQuestionData', function() {
       return {
@@ -19,11 +29,6 @@
           actionIndex: '@'
         },
         link: function(scope) {
-          scope.action.data = scope.action.data || {};
-          scope.action.data.text = scope.action.data.text || '';
-          scope.action.data.resultColumn = scope.action.data.resultColumn || '';
-          scope.action.data.rules = scope.action.data.rules || [];
-
           scope.rules = [{
             text: 'Is a whole number',
             name: 'IsAWholeNumber',
@@ -33,6 +38,8 @@
             name: 'Required',
             checked: false
           }];
+
+          resetData(scope);
 
           syncRules(scope.rules, scope.action.data.rules);
 
