@@ -1,9 +1,15 @@
 env:
   browser: true
   node: false
+  es6: false
+
+ecmaFeatures:
+  modules: false
 
 globals:
   angular: true
 
 rules:
   strict: [2, "function"]
+  prefer-arrow-callback: 0
+  no-var: 0
