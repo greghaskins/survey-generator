@@ -95,11 +95,9 @@ gulp.task('js:compile', () => {
   return gulp.src([js.app, js.modules, js.src])
     .pipe($.sourcemaps.init())
       .pipe($.ngAnnotate())
-      .pipe($.babel({
-        presets: ['es2015']
-      }))
+      .pipe($.babel())
       .pipe($.concat('js/app.min.js'))
-      // .pipe($.uglify())
+      .pipe($.uglify())
       .pipe($.rev())
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(dirs.build))
