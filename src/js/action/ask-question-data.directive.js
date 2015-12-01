@@ -3,9 +3,11 @@
 
   function syncRules(rules, actionRules) {
     angular.forEach(rules, function(rule) {
-      if (actionRules.indexOf(rule.name) !== -1) {
-        rule.checked = true;
-      }
+      angular.forEach(actionRules, function(actionRule) {
+        if (actionRule.name === rule.name) {
+          rule.checked = true;
+        }
+      });
     });
   }
 
@@ -50,7 +52,7 @@
 
             angular.forEach(scope.rules, function(value) {
               if (value.checked) {
-                scope.action.data.rules.push(value.name);
+                scope.action.data.rules.push({name: value.name});
               }
             });
           }, true);
